@@ -28,7 +28,7 @@ Tudo isso está em `engine/engine.js` e **reproduz a planilha com 100% de fideli
 
 1. **Engine intacto.** Estender sim, alterar semântica não. Reconciliação com a planilha é o critério de aceite.
 2. **Percentuais, nunca pesos.** Toda parametrização do usuário é em % (0–100). Grupos que distribuem um total (sazonalidade, distribuição mensal por trimestre, mix, ciclo M+2/M+3/M+4) devem mostrar a soma ao vivo, "Fecha 100%" e um botão Completar. O banco guarda %; o engine trabalha com frações — a conversão é do `store.js`.
-3. **Sem níveis de acesso.** Um login único; todos os usuários de um cliente veem e editam tudo. A RLS existe só para isolar clientes e bloquear anônimos.
+3. **Sem níveis de acesso.** Acesso pelo link (`#k=CHAVE` → conta compartilhada `acesso-<slug>@dnadevendas.com.br`, ver `app/main.js`) ou login por e-mail/senha como alternativa; todos os usuários de um cliente veem e editam tudo. A RLS existe só para isolar clientes e bloquear anônimos.
 4. **Nenhum dado de cliente no repositório** (público). Seeds ficam fora do Git (`.gitignore`). Fixtures de teste usam nomes fictícios.
 5. **Zero dependências instaladas.** Bibliotecas só via CDN com versão fixada (`@supabase/supabase-js@2.112.4`, futuramente SheetJS). Sem build.
 6. **Chaves novas do Supabase** (`sb_publishable_…`, `sb_secret_…`) vão apenas no cabeçalho `apikey`, nunca em `Authorization: Bearer`.
