@@ -1,0 +1,378 @@
+{
+  "settings": {
+    "manager": "Gerente Exemplo",
+    "baseYear": 2026,
+    "year": 2026,
+    "referenceMonth": 8,
+    "selectedExecutiveId": "",
+    "currentUser": "Gerente Comercial"
+  },
+  "params": {
+    "activeProfile": "End-to-End",
+    "profiles": {
+      "Hunter": {
+        "prospectConversion": 0.2,
+        "winRate": 0.2
+      },
+      "Farmer": {
+        "prospectConversion": 0.2,
+        "winRate": 0.2
+      },
+      "End-to-End": {
+        "prospectConversion": 0.2,
+        "winRate": 0.2
+      }
+    },
+    "stageWeights": {
+      "pipeline": 0.2,
+      "strong": 0.5,
+      "commit": 0.9
+    },
+    "cycle": {
+      "m2": 0.2,
+      "m3": 0.6,
+      "m4": 0.2
+    },
+    "applyFloor": true,
+    "floorFactor": 1,
+    "maxMonthlyProspects": 150,
+    "maxMonthlyOpportunities": 35,
+    "materiality": 0.5,
+    "panelHorizon": 12
+  },
+  "businessLines": [
+    {
+      "id": "LIN-01",
+      "name": "Serviços",
+      "ticket": 100000
+    },
+    {
+      "id": "LIN-02",
+      "name": "Cloud",
+      "ticket": 25000
+    },
+    {
+      "id": "LIN-03",
+      "name": "No Core",
+      "ticket": 35000
+    },
+    {
+      "id": "LIN-04",
+      "name": "Core",
+      "ticket": 70000
+    }
+  ],
+  "executives": [
+    {
+      "id": "EXE-01",
+      "name": "Executivo A",
+      "startMonth": 1,
+      "endMonth": 12,
+      "annualTarget": 2000000,
+      "quarterShares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "monthWeights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "totalAccounts": 100,
+      "mix": {
+        "LIN-01": 0.15,
+        "LIN-02": 0.1,
+        "LIN-03": 0.2,
+        "LIN-04": 0.55
+      }
+    },
+    {
+      "id": "EXE-02",
+      "name": "Executivo B",
+      "startMonth": 1,
+      "endMonth": 12,
+      "annualTarget": 2000000,
+      "quarterShares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "monthWeights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "totalAccounts": 100,
+      "mix": {
+        "LIN-01": 0.15,
+        "LIN-02": 0.1,
+        "LIN-03": 0.2,
+        "LIN-04": 0.55
+      }
+    },
+    {
+      "id": "EXE-03",
+      "name": "Executivo C",
+      "startMonth": 1,
+      "endMonth": 12,
+      "annualTarget": 2000000,
+      "quarterShares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "monthWeights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "totalAccounts": 100,
+      "mix": {
+        "LIN-01": 0.15,
+        "LIN-02": 0.1,
+        "LIN-03": 0.2,
+        "LIN-04": 0.55
+      }
+    },
+    {
+      "id": "EXE-04",
+      "name": "Executivo D",
+      "startMonth": 1,
+      "endMonth": 12,
+      "annualTarget": 1000000,
+      "quarterShares": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "monthWeights": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        0.5,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "totalAccounts": 100,
+      "mix": {
+        "LIN-01": 0.15,
+        "LIN-02": 0.1,
+        "LIN-03": 0.2,
+        "LIN-04": 0.55
+      }
+    }
+  ],
+  "managementEntries": [
+    {
+      "executiveId": "EXE-01",
+      "month": 7,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 12000,
+      "managerAdjustment": 0,
+      "wonQty": 2,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 2,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-01",
+      "month": 8,
+      "pipeline": 170000,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 1,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-01",
+      "month": 9,
+      "pipeline": 1500000,
+      "strong": 500000,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 10,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-02",
+      "month": 7,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 69000,
+      "managerAdjustment": 0,
+      "wonQty": 3,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 3,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-02",
+      "month": 8,
+      "pipeline": 121000,
+      "strong": 0,
+      "commit": 1000000,
+      "wonValue": 75000,
+      "managerAdjustment": 0,
+      "wonQty": 1,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 6,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-02",
+      "month": 9,
+      "pipeline": 700000,
+      "strong": 100000,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 6,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-03",
+      "month": 7,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 9,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-03",
+      "month": 8,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 9,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-03",
+      "month": 9,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 23,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-04",
+      "month": 7,
+      "pipeline": 0,
+      "strong": 0,
+      "commit": 0,
+      "wonValue": 75300,
+      "managerAdjustment": 0,
+      "wonQty": 3,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 3,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-04",
+      "month": 8,
+      "pipeline": 0,
+      "strong": 9500,
+      "commit": 12000,
+      "wonValue": 2300,
+      "managerAdjustment": 0,
+      "wonQty": 1,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 3,
+      "lastReview": ""
+    },
+    {
+      "executiveId": "EXE-04",
+      "month": 9,
+      "pipeline": 0,
+      "strong": 170000,
+      "commit": 0,
+      "wonValue": 0,
+      "managerAdjustment": 0,
+      "wonQty": 0,
+      "lostValue": 0,
+      "lostQty": 0,
+      "activeAccounts": 10,
+      "lastReview": ""
+    }
+  ],
+  "commitments": [],
+  "actions": [],
+  "snapshots": [],
+  "meetingNotes": [],
+  "audit": []
+}
