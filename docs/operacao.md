@@ -3,7 +3,12 @@
 ## Rotina
 
 - **Acesso pelo link:** o consultor distribui um link com chave (`…/paineldegovernancacomercial/#k=CHAVE`). Quem abre entra direto, sem usuário e senha; o navegador guarda a sessão e nas próximas visitas a URL sem chave já funciona. Sem a chave, aparece a tela de login (e-mail e senha cadastrados no Supabase). Todos têm o mesmo acesso (sem níveis).
-- **Trocar a chave (revogar acesso):** Supabase → Authentication → Users → usuário `acesso-it-one@dnadevendas.com.br` → redefinir senha → distribuir o novo link. Quem tinha a sessão antiga continua até o token expirar (até 1 hora) ou até sair.
+- **Trocar a chave (revogar acesso):** Supabase → SQL Editor → executar, trocando `NOVA-CHAVE` por uma sequência longa e aleatória (letras e números, sem espaços):
+  ```sql
+  update auth.users set encrypted_password = crypt('NOVA-CHAVE', gen_salt('bf')), updated_at = now()
+  where email = 'acesso-it-one@dnadevendas.com.br';
+  ```
+  Depois distribuir o novo link (`…/#k=NOVA-CHAVE`). Quem tinha a sessão antiga continua até o token expirar (até 1 hora) ou até sair. O painel do Supabase não tem "redefinir senha" manual para esse usuário — por isso o comando acima (a senha do usuário compartilhado é a chave do link).
 - **Salvamento:** automático, por entidade, 350 ms após cada alteração. O indicador no topo mostra "Salvando…", "Salvo HH:MM" ou "Falha ao salvar".
 - **Desfazer:** reverte a última alteração e grava o valor anterior no banco — funciona mesmo depois de salvo.
 - **Mês de referência, ano e executivo selecionados** são preferências de cada navegador (não afetam outros usuários).
