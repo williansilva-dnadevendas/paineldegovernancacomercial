@@ -3,6 +3,8 @@
 Instrumento de governança comercial da DNA de Vendas para a condução da reunião semanal de funil.
 Primeira aplicação: IT-One.
 
+Repositório: `williansilva-dnadevendas/paineldegovernancacomercial` · Site: https://williansilva-dnadevendas.github.io/paineldegovernancacomercial/
+
 **Arquitetura (Onda 1):** site estático publicado pelo GitHub Pages · motor de cálculo no navegador (`engine/engine.js`) ·
 dados no Supabase (PostgreSQL + login) · sem servidor próprio · custo zero.
 
