@@ -1,0 +1,14 @@
+{
+  "name": "governanca-comercial",
+  "version": "0.4.1-onda1",
+  "private": true,
+  "type": "module",
+  "description": "Governança Comercial — instrumento da DNA de Vendas. Site estático (GitHub Pages) + Supabase.",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "smoke": "node tests/smoke.mjs",
+    "seed": "node scripts/gerar-seed.mjs",
+    "backup": "node scripts/backup.mjs",
+    "dev": "python3 -m http.server 4173 --bind 127.0.0.1"
+  }
+}

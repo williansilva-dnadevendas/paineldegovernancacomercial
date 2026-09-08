@@ -1,0 +1,10 @@
+# dados de clientes nunca entram no repositório
+private/
+*seed*.sql
+data/state.json
+# artefatos de teste e locais
+tests/*.png
+node_modules/
+_site/
+.DS_Store
+*.log
