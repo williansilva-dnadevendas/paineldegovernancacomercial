@@ -15,15 +15,16 @@ Tempo estimado: 30 a 40 minutos. Nenhuma etapa exige programar. Onde diz **[voc�
    on conflict (email) do update set client_id = excluded.client_id, name = excluded.name;
    ```
    (troque o e-mail e o nome; repita para cada pessoa).
+5b. **[você]** Acesso pelo link (sem usuário e senha): crie o usuário `acesso-it-one@dnadevendas.com.br` em **Authentication → Users → Add user** com uma senha longa e aleatória (essa senha é a chave do link) e **Auto Confirm**. Vincule ao cliente com o mesmo `insert into public.app_users …` do passo 5. O link de acesso fica: `https://williansilva-dnadevendas.github.io/paineldegovernancacomercial/#k=CHAVE`.
 6. **[você]** Menu **Authentication → Sign In / Providers → Email**: deixe **Enable email provider** ligado e **desligue "Allow new users to sign up"** — assim ninguém cria conta sozinho; só os e-mails cadastrados por você entram.
 
 ## 2. Código (GitHub)
 
-7. **[você]** Crie um repositório **público** chamado `governanca-comercial` (GitHub Pages gratuito exige repositório público; nenhum dado de cliente está no código).
-8. **[você]** Envie todos os arquivos deste pacote para o repositório (pelo site: **Add file → Upload files**, arraste as pastas; ou pelo GitHub Desktop). Confirme que `.github/workflows/` foi incluído.
+7. **[você]** Repositório: `williansilva-dnadevendas/paineldegovernancacomercial`. Confirme que ele está **público** (Settings → General → Danger Zone → Change visibility): o GitHub Pages gratuito exige repositório público; nenhum dado de cliente está no código.
+8. **[você]** Envie todos os arquivos deste pacote para o repositório. Pelo site: **Add file → Upload files** → arraste o *conteúdo* da pasta `gc` (não a pasta em si) → **Commit changes**. Se o repositório já tiver arquivos da versão antiga (`server.mjs`, `public/`, `dist/`, `.openai/`), apague-os antes ou depois — não são mais usados. Confirme que a pasta `.github/workflows/` foi incluída (pastas iniciadas por ponto às vezes ficam ocultas no Explorer/Finder; o GitHub Desktop envia tudo).
 9. **[você]** No repositório: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
 10. **[você]** **Settings → Secrets and variables → Actions → New repository secret**: nome `SUPABASE_SERVICE_ROLE_KEY`, valor = a chave **secreta** do Supabase (Project Settings → API Keys → aba *Secret keys* → criar/copiar uma `sb_secret_...`; se o projeto mostrar apenas as chaves legadas, use a `service_role`). Ela só é usada pelo backup semanal e nunca aparece no site.
-11. **[você]** Aba **Actions** → "Publicar site (GitHub Pages)" → **Run workflow**. Em 1 a 2 minutos a URL aparece em **Settings → Pages** (formato `https://SEU-USUARIO.github.io/governanca-comercial/`).
+11. **[você]** Aba **Actions** → "Publicar site (GitHub Pages)" → **Run workflow**. Em 1 a 2 minutos a URL aparece em **Settings → Pages** (`https://williansilva-dnadevendas.github.io/paineldegovernancacomercial/`).
 
 ## 3. Validação
 
