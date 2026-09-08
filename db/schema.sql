@@ -334,6 +334,10 @@ grant usage on schema public to anon, authenticated;
 grant select, insert, update, delete on all tables in schema public to authenticated;
 grant usage, select on all sequences in schema public to authenticated;
 revoke all on all tables in schema public from anon;
+-- Chave secreta (usada só pelo backup semanal no GitHub Actions): precisa ler todas as tabelas.
+grant usage on schema public to service_role;
+grant select, insert, update, delete on all tables in schema public to service_role;
+grant usage, select on all sequences in schema public to service_role;
 
 -- ---------------------------------------------------------------------
 -- 10. Bucket privado para backups semanais (usado pelo GitHub Actions)
