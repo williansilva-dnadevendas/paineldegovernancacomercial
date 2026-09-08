@@ -1,0 +1,16 @@
+name: Backup semanal do banco
+on:
+  schedule:
+    - cron: "30 9 * * 1"   # segundas-feiras, 09:30 UTC
+  workflow_dispatch:
+jobs:
+  backup:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - name: Exportar tabelas e enviar ao bucket privado "backups"
+        env:
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: node scripts/backup.mjs

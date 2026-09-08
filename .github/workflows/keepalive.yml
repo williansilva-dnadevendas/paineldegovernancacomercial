@@ -1,0 +1,17 @@
+name: Manter banco ativo (keep-alive)
+on:
+  schedule:
+    - cron: "17 9 * * *"   # todos os dias às 09:17 UTC (06:17 em Brasília)
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Chamar função ping() do banco
+        run: |
+          URL=$(node -e "import('./app/config.js').then(c=>console.log(c.SUPABASE_URL))")
+          KEY=$(node -e "import('./app/config.js').then(c=>console.log(c.SUPABASE_KEY))")
+          RESP=$(curl -sS -X POST "$URL/rest/v1/rpc/ping" -H "apikey: $KEY" -H "Content-Type: application/json" -d '{}')
+          echo "Resposta: $RESP"
+          echo "$RESP" | grep -q '^"ok' || { echo "Banco não respondeu como esperado"; exit 1; }
