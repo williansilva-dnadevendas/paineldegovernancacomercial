@@ -110,6 +110,16 @@ await page.waitForFunction(() => window.__calls.some(c => c.op === "upsert" && c
 const params = await page.evaluate(() => window.__calls.find(c => c.op === "upsert" && c.table === "parameters").row);
 check(params.stage_probability.strong === 60 && params.cycle.m3 === 60, "parâmetros gravados em percentual (strong 60, m3 60)");
 
+// Acesso pelo link: #k=CHAVE entra sem digitar nada e remove a chave da URL
+const page2 = await browser.newPage({ viewport: { width: 1400, height: 900 } });
+await page2.route("**/app/api.js", route => route.fulfill({ status: 200, contentType: "text/javascript", body: fakeApiModule }));
+await page2.goto("http://127.0.0.1:4180/#k=teste");
+await page2.waitForSelector("#app:not([hidden])", { timeout: 5000 });
+check(!(await page2.url()).includes("k=teste"), "acesso pelo link entra direto e limpa a chave da URL");
+await page2.goto("http://127.0.0.1:4180/#k=errada"); await page2.reload();
+await page2.waitForSelector("#login-error:not([hidden])", { timeout: 5000 });
+check((await page2.textContent("#login-error")).includes("inválido"), "link com chave errada mostra mensagem clara");
+await page2.close();
 await page.screenshot({ path: path.join(root, "tests/smoke-dashboard.png"), fullPage: false });
 check(errors.length === 0, `sem erros de console/página (${errors.join(" | ") || "nenhum"})`);
 
